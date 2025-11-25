@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./Screenshot.png" width="500">
+  <img src="./Screenshot.png" width="auto">
 </p>
 # 📖 Scribd PDF Downloader - Installation Guide
 
