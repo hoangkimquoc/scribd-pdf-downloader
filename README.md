@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="./Screenshot.png" width="500">
+</p>
 # 📖 Scribd PDF Downloader - Installation Guide
 
 > Complete step-by-step installation guide for beginners with no programming experience required.
@@ -10,10 +13,9 @@
 2. [Step 1: Install Python](#step-1-install-python)
 3. [Step 2: Enable Long Path Support (Windows)](#step-2-enable-long-path-support-windows)
 4. [Step 3: Download the Code](#step-3-download-the-code)
-5. [Step 4: Install Dependencies](#step-4-install-dependencies)
-6. [Step 5: Run the Program](#step-5-run-the-program)
-7. [How to Use](#how-to-use)
-8. [Troubleshooting](#troubleshooting)
+5. [Step 4: Run the Program (Auto-Install)](#step-4-run-the-program-auto-install)
+6. [How to Use](#how-to-use)
+7. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -123,33 +125,9 @@ cd scribd-downloader
 
 ---
 
-## 📦 Step 4: Install Dependencies
+## � Step 4: Run the Program (Auto-Install)
 
-### Install all dependencies at once:
-
-**Windows:**
-```bash
-pip install BeautifulSoup4 requests PyQt6 PyQt6-Fluent-Widgets selenium webdriver-manager PyPDF2 Pillow reportlab
-```
-
-**macOS/Linux:**
-```bash
-pip3 install BeautifulSoup4 requests PyQt6 PyQt6-Fluent-Widgets selenium webdriver-manager PyPDF2 Pillow reportlab
-```
-
-### Or install from requirements files:
-
-```bash
-pip install -r requirements.txt
-pip install -r requirements_selenium.txt
-pip install PyQt6 PyQt6-Fluent-Widgets
-```
-
-> 💡 **Note:** Installation may take 5-10 minutes depending on your internet speed.
-
----
-
-## 🚀 Step 5: Run the Program
+We have simplified the process! You don't need to manually install dependencies anymore. The launcher script will do it for you.
 
 1. **Make sure you're in the `scribd-downloader` directory**
 
@@ -165,7 +143,10 @@ pip install PyQt6 PyQt6-Fluent-Widgets
    python3 launch_gui.py
    ```
 
-3. **The GUI window will appear** 🎉
+3. **Wait for setup:**
+   - The script will automatically check and install missing libraries (Selenium, PyQt6, etc.).
+   - It will also set up the Chrome Driver automatically.
+   - Once done, the GUI window will appear! 🎉
 
 ---
 
@@ -196,7 +177,11 @@ When you open the program, you'll see:
 ### Steps to Download PDF:
 
 1. **Enter URL:**
-   - Copy the Scribd document link (e.g., `https://www.scribd.com/document/123456789/example`)
+   - Copy the Scribd document link
+   - Tool supports **both URL formats**:
+     - 📄 Document URL: `https://www.scribd.com/document/[id]/title`
+     - 🔗 Embed URL: `https://www.scribd.com/embeds/[id]/content`
+   - Tool will **automatically convert** document URL to embed URL for download
    - Paste it into the **"Enter Scribd Document URL"** field
 
 2. **Select save location (optional):**
@@ -215,10 +200,12 @@ When you open the program, you'll see:
 
 ### Features:
 
+- ✅ **Multiple URL format support:** Automatically detects and converts URLs
 - ✅ **Auto-scroll:** Selenium automatically scrolls to load all content
 - ✅ **High-quality PDF:** Combines all pages into one PDF file
 - ✅ **Stop anytime:** Click the **"Stop"** button to cancel
 - ✅ **Dark Mode:** Beautiful dark interface
+- ✅ **Auto-Setup:** Automatically installs dependencies and drivers
 
 ---
 
@@ -232,16 +219,7 @@ When you open the program, you'll see:
 1. Uninstall Python
 2. Reinstall and remember to check **"Add Python to PATH"**
 
-### Error 2: `No module named 'PyQt6'`
-
-**Cause:** PyQt6 not installed
-
-**Solution:**
-```bash
-pip install PyQt6 PyQt6-Fluent-Widgets
-```
-
-### Error 3: `OSError: [Errno 2] No such file or directory` (Windows)
+### Error 2: `OSError: [Errno 2] No such file or directory` (Windows)
 
 **Cause:** Long Path Support not enabled
 
@@ -250,28 +228,20 @@ pip install PyQt6 PyQt6-Fluent-Widgets
 - Restart your computer
 - Reinstall PyQt6
 
-### Error 4: `ChromeDriver not found`
-
-**Cause:** Chrome or ChromeDriver not installed
+### Error 3: `ChromeDriver not found` or Browser Crash
 
 **Solution:**
-1. Install Google Chrome: https://www.google.com/chrome/
-2. ChromeDriver will auto-download on first run
+- The new script uses `webdriver-manager` to handle this automatically.
+- Ensure you have **Google Chrome** installed.
+- Try running `python launch_gui.py` again, it will attempt to fix driver issues.
 
-### Error 5: GUI doesn't appear
+### Error 4: GUI doesn't appear
 
 **Solution:**
-1. Check if all libraries are installed:
-   ```bash
-   pip list | findstr PyQt6
-   ```
-2. Try running the debug file:
-   ```bash
-   python debug_gui.py
-   ```
-3. Check the console for errors and Google for solutions
+1. Check the console output for any error messages.
+2. Ensure you are running `python launch_gui.py` from the correct directory.
 
-### Error 6: "Access Denied" when downloading
+### Error 5: "Access Denied" when downloading
 
 **Cause:** Document is locked or requires login
 
