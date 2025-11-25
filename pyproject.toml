@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "scribd-downloader"
+version = "0.1.3"
+description = "A Scribd-Downloader that actually works"
+authors = ["Ritiek Malhotra <ritiekmalhotra123@gmail.com>"]
+readme = "README.rst"
+packages = [{include = "scribdl", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.31.0"
+beautifulsoup4 = "^4.12.0"
+PyQt6 = "^6.6.0"
+PyQt6-Fluent-Widgets = "^1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+ruff = "^0.3.0"
+mypy = "^1.8.0"
+types-requests = "^2.31.0"
+types-beautifulsoup4 = "^4.12.0"
+
+[tool.poetry.scripts]
+scribdl = "scribdl.scribdl:command_line"
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
